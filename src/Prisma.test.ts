@@ -7,12 +7,14 @@ test('multiple Prisma instances with unique schemas do not share schemas', t => 
     typeDefs: join(__dirname, '../src/fixtures/testSchemaA.graphql'),
     endpoint: 'https://mock-prisma-endpoint.io/serviceA',
     secret: 'secretA',
+    headers: {}
   })
 
   const prismaB = new Prisma({
     typeDefs: join(__dirname, '../src/fixtures/testSchemaB.graphql'),
     endpoint: 'https://mock-prisma-endpoint.io/serviceB',
     secret: 'secretB',
+    headers: {}
   })
 
   t.not(prismaA.schema, prismaB.schema)
@@ -23,6 +25,7 @@ test('multiple Prisma instances with the same schema use a cached copy', t => {
     typeDefs: join(__dirname, '../src/fixtures/testSchemaA.graphql'),
     endpoint: 'https://mock-prisma-endpoint.io/serviceA',
     secret: 'secretA',
+    headers: {}
   }
 
   const prismaA = new Prisma(options)

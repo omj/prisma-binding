@@ -9,14 +9,22 @@ export function makePrismaLink({
   endpoint,
   token,
   debug,
+  headers
 }: {
   endpoint: string
   token?: string
-  debug?: boolean
+  debug?: boolean,
+  headers: any
 }): ApolloLink {
+
+  const clonedHeaders = {...headers};
+  if (token) {
+    clonedHeaders.Authorization = `Bearer ${token}`;
+  }
+
   const httpLink = new HTTPLinkDataloader({
     uri: endpoint,
-    headers: token ? { Authorization: `Bearer ${token}` } : {},
+    headers: clonedHeaders//token ? { Authorization: `Bearer ${token}` } : {},
   })
 
   // also works for https/wss

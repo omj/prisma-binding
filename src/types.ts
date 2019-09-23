@@ -14,12 +14,18 @@ export interface BasePrismaOptions {
   endpoint?: string
   secret?: string
   debug?: boolean
-  disableCache?: boolean
+  disableCache?: boolean,
+  headers: any//Map<string, string>
 }
 
 export interface PrismaOptions extends BasePrismaOptions {
   typeDefs: string
 }
+
+// export interface Header {
+//   key: string;
+//   value: string;
+// }
 
 export interface QueryMap {
   [rootField: string]: (
