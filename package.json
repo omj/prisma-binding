@@ -1,14 +1,14 @@
 {
   "name": "prisma-binding",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dist/index.js",
   "typings": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/graphcool/graphcool-binding.git"
+  "publishConfig": {
+    "registry": "http://artifactory.vistajet.local/libs-npm-trial",
+    "tag": "latest"
   },
   "author": "Johannes Schickling <johannes@graph.cool>",
   "contributors": [
